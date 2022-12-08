@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Cities from "./components/Cities";
+import Home from "./components/Home";
+import SideBar from "./components/SideBar";
 
 function App() {
+  const [active,setActive] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="home-body">
+      <BrowserRouter>
+      <SideBar active={active}/>
+      <Routes>
+        <Route path="/" element={<Home setActive={setActive}/>} />
+        <Route path="/cities" element={<Cities />} />
+      </Routes>
+      </BrowserRouter>
+      {/* <Home /> */}
     </div>
   );
 }
