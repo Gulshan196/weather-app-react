@@ -1,14 +1,15 @@
-import React, { useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquarePlus } from '@fortawesome/free-regular-svg-icons'
+import Modal from './Modal'
+import { useState } from 'react';
 
 const Cities = () => {
 
-  const inputReference = useRef(null);
-
-    useEffect(() => {
-        inputReference.current.focus();
-    }, []);
+  const [modal,setModal] = useState(false);
+    
+function openModal () {
+setModal(true);
+}
   return (
     <div className='cities-container'>
       <div className='cities-wrapper'>
@@ -16,65 +17,66 @@ const Cities = () => {
           <div>
             Cities
           </div>
-          <FontAwesomeIcon icon={faSquarePlus} className='add-icon'/>
+          <FontAwesomeIcon icon={faSquarePlus} className='add-icon' onClick={openModal}/>
         </div>
         <div>
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details' ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details'ref={inputReference} tabIndex={-1}>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details'>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
 
-        <div className='city-details'>
+        <div className='city-details' tabIndex={0}>
           <div>Bangalore</div>
           <div>20 <span>&#176;</span>C</div>
         </div>
       </div>
       </div>
+      <Modal modal = {modal} setModal = {setModal}/>
     </div>
   )
 }

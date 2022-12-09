@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 const Home = ({setActive}) => {
+  
    // component did mount
     useEffect(()=>{
         setActive(true);
@@ -8,7 +9,6 @@ const Home = ({setActive}) => {
   
       // component will unmount
       useEffect(()=>{
-  
      return () => {
         setActive(false);
      }
