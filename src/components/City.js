@@ -1,8 +1,7 @@
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { citiesContext } from './CitiesContext'
-import cityData from './data'
 
 const City = () => {
     const name = useContext(citiesContext);
