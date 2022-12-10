@@ -6,16 +6,16 @@ import SideBar from "./components/SideBar";
 
 function App() {
   const [active,setActive] = useState(false);
+  const [modal,setModal] = useState(false);
   return (
     <div className="home-body">
       <BrowserRouter>
       <SideBar active={active}/>
       <Routes>
-        <Route path="/" element={<Home setActive={setActive}/>} />
-        <Route path="/cities" element={<Cities />} />
+        <Route path="/" element={<Home setActive={setActive} modal = {modal} setModal = {setModal}/>} />
+        <Route path="/cities" element={<Cities modal = {modal} setModal = {setModal}/>} />
       </Routes>
       </BrowserRouter>
-      {/* <Home /> */}
     </div>
   );
 }
