@@ -14,7 +14,7 @@ const City = () => {
    }
   return (
     <div>
-        {name.city && name.city.map((el,index) => {
+        {name.city && name.city.map((el) => {
             return( <div key={el.city} className='city-container'>
             <div>{el.city}</div>
             <FontAwesomeIcon icon={faCirclePlus} className='add-icon' onClick={()=>addCity(el)}/>
