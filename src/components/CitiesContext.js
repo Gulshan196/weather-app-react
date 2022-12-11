@@ -11,12 +11,14 @@ const [icon, setIcon] = useState({});
 
 const [info,setInfo] = useState();
 
+const [show,setShow] = useState({});
+
 useEffect(()=>{
  setCity(cityData);
 },[])
 
   return (
-    <citiesContext.Provider value = {{city,setCity,icon,setIcon,info,setInfo}}>
+    <citiesContext.Provider value = {{city,setCity,icon,setIcon,info,setInfo,show,setShow}}>
        {children}
     </citiesContext.Provider>
   )
