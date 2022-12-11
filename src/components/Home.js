@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { citiesContext } from './CitiesContext';
 import cityData from './data';
 import Modal from './Modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = ({setActive,setModal,modal}) => {
    const name = useContext(citiesContext);
@@ -17,7 +19,7 @@ const Home = ({setActive,setModal,modal}) => {
       arr.push(cityData[i]);
     }
     setFav(arr);
-    console.log(arr);
+    // console.log(arr);
    }
    }
 
@@ -37,6 +39,17 @@ const Home = ({setActive,setModal,modal}) => {
      setFav(arr);
     }
     setVal((val) => { return !val });
+
+    toast.success('Removed from favourites', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   }
 
    // component did mount
@@ -65,6 +78,17 @@ const Home = ({setActive,setModal,modal}) => {
             <button onClick={openModal}> Add New City</button>
         </div>
         <div className='main-body-container'>
+        <ToastContainer 
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light" />
           {fav && fav.map((el)=>{
             return (<div key={el.city} className='main-body'>
             <div>

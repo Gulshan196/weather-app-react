@@ -2,6 +2,8 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext } from 'react'
 import { citiesContext } from './CitiesContext'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const City = () => {
     const name = useContext(citiesContext);
@@ -11,6 +13,17 @@ const City = () => {
         console.log(c);
         const ans = name.city.filter((el)=>el !== c);
         name.setCity(ans);
+
+        toast.success('City added', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
    }
   return (
     <div>

@@ -4,6 +4,8 @@ import Modal from './Modal'
 import { useContext, useEffect, useState } from 'react';
 import { citiesContext } from './CitiesContext';
 import cityData from './data';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cities = ({ modal, setModal }) => {
 
@@ -12,8 +14,6 @@ const Cities = ({ modal, setModal }) => {
   const [city, setCity] = useState([]);
 
   const [box, setBox] = useState(false);
-
-  // const [info, setInfo] = useState();
 
   const [val, setVal] = useState(false);
 
@@ -33,13 +33,37 @@ const Cities = ({ modal, setModal }) => {
 
   function changeIcon(city) {
     let map = name.icon;
+    setVal((val) => { return !val });
 
-    if (!map[city]) map[city] = true;
-    else map[city] = false;
+    if (!map[city]){ 
+      map[city] = true;
+
+      toast.success('Added to favourites', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+    else {
+      map[city] = false;
+      toast.success('Removed from favourites', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      }
 
     name.setIcon(map);
-
-    setVal((val) => { return !val });
   }
   return (
     <div className='cities-container'>
@@ -67,6 +91,18 @@ const Cities = ({ modal, setModal }) => {
           }
         </div>
       </div>}
+
+      <ToastContainer 
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light" />
 
       <Modal modal={modal} setModal={setModal} />
     </div>
