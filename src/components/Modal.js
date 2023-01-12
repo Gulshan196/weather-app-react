@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { citiesContext } from './CitiesContext';
 import City from './City';
+import PropTypes from 'prop-types'
+
 
 const Modal = ({modal,setModal}) => {
   const name = useContext(citiesContext);
@@ -22,8 +24,6 @@ const Modal = ({modal,setModal}) => {
     })
 
     name.setShow(map);
-
-    console.log(map);
     setCityArr(narr);
   }
 
@@ -53,5 +53,7 @@ const Modal = ({modal,setModal}) => {
     </div>
   )
 }
+
+Modal.propTypes = {modal :PropTypes.bool, setModal :PropTypes.func}
 
 export default Modal

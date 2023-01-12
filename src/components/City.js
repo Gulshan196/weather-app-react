@@ -5,7 +5,7 @@ import { citiesContext } from './CitiesContext'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const City = ({ cityArr }) => {
+const City = () => {
   const name = useContext(citiesContext);
 
   // we want to persist values between renders.
@@ -19,7 +19,6 @@ const City = ({ cityArr }) => {
 
   function addCity(val) {
     let c = name.city.find((el) => el.city === val.city);
-    console.log(c);
     const ans = name.city.filter((el) => el !== c);
     name.setCity(ans);
 

@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 
 const SideBar = ({active}) => {
     const navigate = useNavigate();
@@ -21,5 +23,6 @@ const SideBar = ({active}) => {
        </div>
   )
 }
+SideBar.propTypes = {active :PropTypes.bool}
 
 export default SideBar

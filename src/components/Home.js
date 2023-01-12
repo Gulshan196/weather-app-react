@@ -4,6 +4,8 @@ import cityData from './data';
 import Modal from './Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types'
+
 
 const Home = ({setActive,setModal,modal}) => {
    const name = useContext(citiesContext);
@@ -19,7 +21,6 @@ const Home = ({setActive,setModal,modal}) => {
       arr.push(cityData[i]);
     }
     setFav(arr);
-    // console.log(arr);
    }
    }
 
@@ -120,5 +121,7 @@ const Home = ({setActive,setModal,modal}) => {
        </div>
   )
 }
+
+Home.propTypes = {modal :PropTypes.bool, setModal :PropTypes.func, setActive :PropTypes.func}
 
 export default Home

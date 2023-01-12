@@ -6,6 +6,8 @@ import { citiesContext } from './CitiesContext';
 import cityData from './data';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types'
+
 
 const Cities = ({ modal, setModal }) => {
 
@@ -91,7 +93,6 @@ const Cities = ({ modal, setModal }) => {
           }
         </div>
       </div>}
-
       <ToastContainer 
         position="top-center"
         autoClose={1000}
@@ -103,10 +104,11 @@ const Cities = ({ modal, setModal }) => {
         draggable
         pauseOnHover
         theme="light" />
-
       <Modal modal={modal} setModal={setModal} />
     </div>
   )
 }
+
+Cities.propTypes = {modal :PropTypes.bool, setModal :PropTypes.func}
 
 export default Cities

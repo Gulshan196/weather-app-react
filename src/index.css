@@ -270,7 +270,6 @@ html {
 
 .modal-search > input {
   width:100%;
-  border: none;
   border: 1px solid #d9d9d9;
 }
 
@@ -324,4 +323,31 @@ html {
  .main-city-body .desc-container{
     color: green;
     margin-bottom: 10px
+ }
+
+ @media(max-width:768px){
+  .home-body {
+    flex-direction: column;
+  }
+
+  .side-bar {
+    flex-direction: row;
+    width:100%;
+  }
+
+  .side-bar :last-child {
+    flex-grow: 1;
+  }
+
+  .cities-container {
+    padding: 5px;
+  }
+
+  .cities-wrapper {
+    width:40%;
+  }
+
+  .cities-container .right-container {
+    width:55%;
+  }
  }
